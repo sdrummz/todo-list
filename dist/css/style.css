@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #7868e6;
+}
+
+.navbar-brand {
+  margin-left: 10px;
+  font-size: 25px;
+  font-family: 'RocknRoll One', sans-serif;
+}
+
+.logo {
+  margin: -5px 10px 0 10px;
+  width: 32px;
+  color: white;
+}
+
+.left-nav {
+  height: calc(100vh - 63px);
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+ul {
+  list-style: none;
+}
