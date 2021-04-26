@@ -7,15 +7,16 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/***/ "./src/app.js":
+/*!********************!*\
+  !*** ./src/app.js ***!
+  \********************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("\n\n//# sourceURL=webpack://todo-list/./src/app.js?");
 
 /***/ })
 
@@ -26,7 +27,7 @@ eval("\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/index.js"]();
+/******/ 	__webpack_modules__["./src/app.js"]();
 /******/ 	
 /******/ })()
 ;

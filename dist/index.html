@@ -22,16 +22,16 @@
     <div class="container-fluid px-0 d-flex">
       <div class="left-nav">
         <ul class="list-group-flush">
-          <li data-designation="inbox">
+          <li class="inbox">
             <span><img class="nav-img" src="images/inbox.svg" alt="" width="25" /> Inbox</span>
           </li>
-          <li data-designation="today">
+          <li class="today">
             <span><img class="nav-img" src="images/today.svg" alt="" width="25" /> Today</span>
           </li>
-          <li data-designation="this-week">
+          <li class="this-week">
             <span><img class="nav-img" src="images/week.svg" alt="" width="25" /> This Week</span>
           </li>
-          <li data-designation="completed">
+          <li class="completed">
             <span><img class="nav-img" src="images/check-mark.svg" alt="" width="25" /> Completed</span>
           </li>
           <button
@@ -49,17 +49,36 @@
           </button>
           <div class="collapse" id="collapseOne">
             <ul>
-              <li>Hello</li>
+              <li>Default</li>
               <li>
-                <button class="btn add-btn"><img class="add-img" src="images/add.svg" alt="" width="20" /> New Project</button>
+                <button class="btn add-project-btn"><img class="add-img" src="images/add.svg" alt="" width="20" /> New Project</button>
               </li>
             </ul>
           </div>
         </ul>
       </div>
-      <div class="content container m-4 p-3">
+      <div class="content-section container m-4 p-3">
         <div class="heading">
           <div class="h2"><span>Today</span></div>
+        </div>
+        <div class="content container-fluid">
+          <ul class="list-group-flush">
+            <li class="list-group-item">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="taskCheck" />
+                <label class="form-check-label">Task Title</label>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="taskCheck" />
+                <label class="form-check-label">Task Title</label>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <button class="add-task-btn btn btn-block"><img class="add-img" src="images/add.svg" alt="" width="25" /> Add task</button>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
