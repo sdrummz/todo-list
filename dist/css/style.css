@@ -19,6 +19,10 @@
   color: white;
 }
 
+.navbar-toggler {
+  margin-right: 15px;
+}
+
 .left-nav {
   height: calc(100vh - 63px);
   width: 300px;
@@ -87,4 +91,32 @@ li:hover {
 
 .add-task-btn:hover {
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+  .left-nav {
+    position: absolute;
+    display: none;
+    z-index: 100;
+    background-color: #edeef7;
+    width: 200px;
+    padding-left: 20px;
+  }
+
+  .left-nav.reveal {
+    display: block;
+  }
+
+  .content-section {
+    padding: 0;
+    margin: 0;
+  }
+
+  .heading {
+    text-align: center;
+  }
+
+  ul.list-group-flush {
+    padding-left: 0;
+  }
 }
