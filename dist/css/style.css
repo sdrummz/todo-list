@@ -3,6 +3,8 @@
   padding: 0;
 }
 
+/* NAV SECTION */
+
 .navbar {
   background-color: #7868e6;
 }
@@ -84,6 +86,8 @@ li:hover {
   padding-bottom: 4px;
 }
 
+/* CONTENT SECTION */
+
 .add-task-btn {
   padding-left: 0;
   font-size: 20px;
@@ -91,6 +95,25 @@ li:hover {
 
 .add-task-btn:hover {
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+.form-check {
+  padding-top: 4px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-item .btn {
+  background-color: white;
+  border: none;
+  padding: 7px;
+}
+
+.task-item .btn:hover {
+  background-color: lightgrey;
 }
 
 @media (max-width: 768px) {
