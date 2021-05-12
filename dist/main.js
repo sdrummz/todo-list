@@ -16,7 +16,7 @@
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects.js */ \"./src/projects.js\");\n\n\ndocument.querySelector('.navbar-toggler').addEventListener('click', function()  {\n    document.querySelector('.left-nav').classList.toggle('reveal');\n})\n\n$(function () {\n    $('[data-toggle=\"tooltip\"]').tooltip()\n  })\n\n//# sourceURL=webpack://todo-list/./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects.js */ \"./src/projects.js\");\n\n\n\ndocument.querySelector('.navbar-toggler').addEventListener('click', function()  {\n    document.querySelector('.left-nav').classList.toggle('reveal');\n})\n\n// Switch arrow function\nconst switchArrow = () => {\n    const arrow = document.getElementById('arrow');\n    if (arrow.getAttribute('src') == \"images/arrow-down.svg\") {\n        arrow.src = \"images/arrow-up.svg\";\n    } else if (arrow.getAttribute('src') == \"images/arrow-up.svg\") {\n        arrow.src = \"images/arrow-down.svg\";\n    }\n}\n\n\ndocument.querySelector('.projects').addEventListener('click', function() {\n    switchArrow();\n})\n\n$(function () {\n    $('[data-toggle=\"tooltip\"]').tooltip()\n  })\n\n//# sourceURL=webpack://todo-list/./src/app.js?");
 
 /***/ }),
 
