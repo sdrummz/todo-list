@@ -63,7 +63,7 @@
               <li>Default</li>
               <li>
                 <button class="btn add-project-btn" data-toggle="modal" data-target="#addProjectModal">
-                  <img class="add-img" src="images/add.svg" alt="" width="20" /> New Project
+                  <img class="add-img" src="images/add.svg" alt="" width="20" /> Add new
                 </button>
               </li>
             </ul>
@@ -111,7 +111,9 @@
               </div>
             </li>
             <li class="list-group-item">
-              <button class="add-task-btn btn btn-block"><img class="add-img" src="images/add.svg" alt="" width="25" /> Add task</button>
+              <button class="add-task-btn btn btn-block" data-toggle="modal" data-target="#addTaskModal">
+                <img class="add-img" src="images/add.svg" alt="" width="25" />Add task
+              </button>
             </li>
           </ul>
         </div>
@@ -125,7 +127,7 @@
       data-backdrop="static"
       data-keyboard="false"
       tabindex="-1"
-      aria-labelledby="exampleModalLabel"
+      aria-labelledby="pojectModal"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -137,6 +139,28 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save project</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="addTaskModal"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add new task</h5>
+          </div>
+          <div class="modal-body">form goes here</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save task</button>
           </div>
         </div>
       </div>
