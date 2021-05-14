@@ -21,5 +21,9 @@ document.querySelector('.projects').addEventListener('click', function() {
 })
 
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
+    $('[data-toggle="tooltip"]').tooltip({ trigger: 'hover'})
+})
+
+$(function () {
+    $('[data-toggle="popover"]').popover()
+})
