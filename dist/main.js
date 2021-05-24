@@ -16,7 +16,7 @@
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ \"./src/projects.js\");\n/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view */ \"./src/view.js\");\n\n\n\n// toggle navbar button on small screens \ndocument.querySelector('.navbar-toggler').addEventListener('click', function()  {\n    document.querySelector('.left-nav').classList.toggle('reveal');\n})\n\n// switch arrow direction on projects dropdown\ndocument.querySelector('.projects').addEventListener('click', function() {\n    ;(0,_view__WEBPACK_IMPORTED_MODULE_1__.switchArrow)();\n})\n\n\n// bootstrap feature initialize\n$(function () {\n    $('[data-toggle=\"tooltip\"]').tooltip({ trigger: 'hover'})\n})\n\n$(function () {\n    $('[data-toggle=\"popover\"]').popover({\n        html: true,\n        content: '<div class=\"btn-group-vertical\"><button type=\"button\" class=\"btn btn-secondary\">Low</button><button type=\"button\" class=\"btn btn-secondary\">Medium</button><button type=\"button\" class=\"btn btn-secondary\">High</button></div>'\n        \n    })\n})\n\n//# sourceURL=webpack://todo-list/./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ \"./src/projects.js\");\n/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view */ \"./src/view.js\");\n/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./storage */ \"./src/storage.js\");\n\n\n\n\n// toggle navbar button on small screens \ndocument.querySelector('.navbar-toggler').addEventListener('click', function()  {\n    document.querySelector('.left-nav').classList.toggle('reveal');\n})\n\n// switch arrow direction on projects dropdown\ndocument.querySelector('.projects').addEventListener('click', function() {\n    ;(0,_view__WEBPACK_IMPORTED_MODULE_1__.switchArrow)();\n})\n\n\n// bootstrap feature initialize\n$(function () {\n    $('[data-toggle=\"tooltip\"]').tooltip({ trigger: 'hover'})\n})\n\n$(function () {\n    $('[data-toggle=\"popover\"]').popover({\n        html: true,\n        content: '<div class=\"btn-group-vertical\"><button type=\"button\" class=\"btn btn-secondary\">Low</button><button type=\"button\" class=\"btn btn-secondary\">Medium</button><button type=\"button\" class=\"btn btn-secondary\">High</button></div>'\n        \n    })\n})\n\n//# sourceURL=webpack://todo-list/./src/app.js?");
 
 /***/ }),
 
@@ -26,7 +26,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pro
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"projectFactory\": () => (/* binding */ projectFactory)\n/* harmony export */ });\nconst projectFactory = (name) => {\n    let ID = newID();\n    return { name, ID };\n}\n\nconst newID = () => {\n    return '_' + Math.random().toString(36).substr(2, 9);\n}\n\n\n\n//# sourceURL=webpack://todo-list/./src/projects.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"projectFactory\": () => (/* binding */ projectFactory)\n/* harmony export */ });\n/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ \"./src/storage.js\");\n\n\nconst projectFactory = (name) => {\n    let ID = newID();\n    return { name, ID };\n}\n\nconst newID = () => {\n    return '_' + Math.random().toString(36).substr(2, 9);\n}\n\n\n\n// add project modal submit\nconst inputProject = document.getElementById('inputProject');\nconst inputProjectBtn = document.querySelector('.inputProjectBtn');\ninputProjectBtn.addEventListener('click', function() {\n    if (inputProject.value != '') {\n        _storage__WEBPACK_IMPORTED_MODULE_0__.projectStorage.push(projectFactory(inputProject.value))\n        $('#addProjectModal').modal('toggle')\n        inputProject.value = null;\n    }\n})\n\n\n\n\n//# sourceURL=webpack://todo-list/./src/projects.js?");
+
+/***/ }),
+
+/***/ "./src/storage.js":
+/*!************************!*\
+  !*** ./src/storage.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"projectStorage\": () => (/* binding */ projectStorage)\n/* harmony export */ });\nlet projectStorage = [];\n\n\n//# sourceURL=webpack://todo-list/./src/storage.js?");
 
 /***/ }),
 

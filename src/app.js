@@ -1,5 +1,6 @@
 import { projectFactory } from './projects';
 import { switchArrow } from './view'
+import * as storage from './storage'
 
 // toggle navbar button on small screens 
 document.querySelector('.navbar-toggler').addEventListener('click', function()  {
