@@ -16,7 +16,7 @@
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _projects_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects.js */ \"./src/projects.js\");\n\n\n\ndocument.querySelector('.navbar-toggler').addEventListener('click', function()  {\n    document.querySelector('.left-nav').classList.toggle('reveal');\n})\n\n// Switch arrow function\nconst switchArrow = () => {\n    const arrow = document.getElementById('arrow');\n    if (arrow.getAttribute('src') == \"images/arrow-down.svg\") {\n        arrow.src = \"images/arrow-up.svg\";\n    } else if (arrow.getAttribute('src') == \"images/arrow-up.svg\") {\n        arrow.src = \"images/arrow-down.svg\";\n    }\n}\n\n\ndocument.querySelector('.projects').addEventListener('click', function() {\n    switchArrow();\n})\n\n$(function () {\n    $('[data-toggle=\"tooltip\"]').tooltip({ trigger: 'hover'})\n})\n\n$(function () {\n    $('[data-toggle=\"popover\"]').popover({\n        html: true,\n        content: '<div class=\"btn-group-vertical\"><button type=\"button\" class=\"btn btn-secondary\">Low</button><button type=\"button\" class=\"btn btn-secondary\">Medium</button><button type=\"button\" class=\"btn btn-secondary\">High</button></div>'\n        \n    })\n})\n\n//# sourceURL=webpack://todo-list/./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ \"./src/projects.js\");\n/* harmony import */ var _view__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view */ \"./src/view.js\");\n\n\n\n// toggle navbar button on small screens \ndocument.querySelector('.navbar-toggler').addEventListener('click', function()  {\n    document.querySelector('.left-nav').classList.toggle('reveal');\n})\n\n// switch arrow direction on projects dropdown\ndocument.querySelector('.projects').addEventListener('click', function() {\n    ;(0,_view__WEBPACK_IMPORTED_MODULE_1__.switchArrow)();\n})\n\n\n// bootstrap feature initialize\n$(function () {\n    $('[data-toggle=\"tooltip\"]').tooltip({ trigger: 'hover'})\n})\n\n$(function () {\n    $('[data-toggle=\"popover\"]').popover({\n        html: true,\n        content: '<div class=\"btn-group-vertical\"><button type=\"button\" class=\"btn btn-secondary\">Low</button><button type=\"button\" class=\"btn btn-secondary\">Medium</button><button type=\"button\" class=\"btn btn-secondary\">High</button></div>'\n        \n    })\n})\n\n//# sourceURL=webpack://todo-list/./src/app.js?");
 
 /***/ }),
 
@@ -27,6 +27,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pro
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"projectFactory\": () => (/* binding */ projectFactory)\n/* harmony export */ });\nconst projectFactory = (name) => {\n    let ID = newID();\n    return { name, ID };\n}\n\nconst newID = () => {\n    return '_' + Math.random().toString(36).substr(2, 9);\n}\n\n\n\n//# sourceURL=webpack://todo-list/./src/projects.js?");
+
+/***/ }),
+
+/***/ "./src/view.js":
+/*!*********************!*\
+  !*** ./src/view.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"switchArrow\": () => (/* binding */ switchArrow)\n/* harmony export */ });\n\n\n// Switch arrow function switches arrow direction on projects dropdown\nconst switchArrow = () => {\n    const arrow = document.getElementById('arrow');\n    if (arrow.getAttribute('src') == \"images/arrow-down.svg\") {\n        arrow.src = \"images/arrow-up.svg\";\n    } else if (arrow.getAttribute('src') == \"images/arrow-up.svg\") {\n        arrow.src = \"images/arrow-down.svg\";\n    }\n}\n\n\n\n//# sourceURL=webpack://todo-list/./src/view.js?");
 
 /***/ })
 
