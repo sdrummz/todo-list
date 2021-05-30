@@ -1,5 +1,5 @@
 import { projectFactory } from './projects';
-import { switchArrow } from './view'
+import { switchArrow, updateProjectList } from './view'
 import * as storage from './storage'
 
 // toggle navbar button on small screens 
@@ -13,7 +13,12 @@ document.querySelector('.projects').addEventListener('click', function() {
 })
 
 
-// bootstrap feature initialize
+// initialize view
+updateProjectList();
+
+
+
+// bootstrap components initialize
 $(function () {
     $('[data-toggle="tooltip"]').tooltip({ trigger: 'hover'})
 })
