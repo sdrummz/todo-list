@@ -1,5 +1,5 @@
 import { projectFactory } from './projects';
-import { switchArrow, updateProjectList } from './view'
+import { switchArrow, updateProjectList, taskGroupTitle } from './view'
 import * as storage from './storage'
 
 // toggle navbar button on small screens 
@@ -17,18 +17,17 @@ document.querySelector('.projects').addEventListener('click', function() {
 updateProjectList();
 
 // Switching selected category title
-const catTitle = document.querySelector('.cat-title');
-const taskGroupTitle = document.querySelectorAll('.task-group-title');
-taskGroupTitle.forEach(el => {
+const taskGroupBtns = document.querySelectorAll('.task-group-btn');
+taskGroupBtns.forEach(el => {
     el.addEventListener('click', function() {
         if (el.classList.contains('inbox')) {
-            console.log('inbox');
+            taskGroupTitle('Inbox')
         } else if (el.classList.contains('today')) {
-            console.log('today')
+            taskGroupTitle('Today')
         } else if (el.classList.contains('this-week')) {
-            console.log('this week')
+            taskGroupTitle('This week')
         } else if (el.classList.contains('completed')) {
-            console.log('completed')
+            taskGroupTitle('Completed')
         }
     })
 })

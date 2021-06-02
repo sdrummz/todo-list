@@ -11,7 +11,10 @@ const switchArrow = () => {
 }
 
 // Switching selected menu categories (default it today)
-
+const taskGroupTitle = (taskGroup) => {
+    let title = document.querySelector('.task-group-title');
+    title.textContent = taskGroup;
+}
 
 
 // Adding new projects and tasks to UI
@@ -34,4 +37,4 @@ const updateProjectList = () => {
 
 
 
-export { switchArrow, updateProjectList };
+export { switchArrow, updateProjectList, taskGroupTitle };
