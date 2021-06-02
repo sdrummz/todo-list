@@ -10,24 +10,25 @@ const switchArrow = () => {
     }
 }
 
+// Switching selected menu categories (default it today)
+
 
 
 // Adding new projects and tasks to UI
 
 //  update/add projects list
 const updateProjectList = () => {
+    // parent node/list
     const projectList = document.querySelector('.project-list');
-    // update only the most recently added object
 
     // iterate over project items to delete
     const projectItems = document.querySelectorAll('.project-item');
     projectItems.forEach(function(item) {
         item.remove();
     })
-
+    // for each project object, add to view
     projectStorage.forEach(function(el) {
         projectList.children[projectList.childElementCount - 1].insertAdjacentHTML("beforebegin", `<li class="project-item" data-project-ID=${el.ID}>${el.name}</li>`);
-        // projectList.insertBefore(`<li class="project-item" data-project-ID=${el.ID}>${el.name}</li>`, projectList.children[projectList.childElementCount]);
     })
 }
 
