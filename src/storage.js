@@ -1,2 +1,2 @@
-export let projectStorage = [ {name: 'Default', ID: '_yu6F3D'}];
+export let projectStorage = [ {name: 'Default', projectID: '_yu6b45iw6'}];
 export let taskStorage = [];

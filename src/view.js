@@ -31,7 +31,7 @@ const updateProjectList = () => {
     })
     // for each project object, add to view
     projectStorage.forEach(function(el) {
-        projectList.children[projectList.childElementCount - 1].insertAdjacentHTML("beforebegin", `<li class="project-item" data-project-ID=${el.ID}>${el.name}</li>`);
+        projectList.children[projectList.childElementCount - 1].insertAdjacentHTML("beforebegin", `<li class="project-item" data-project-ID=${el.projectID}>${el.name}</li>`);
     })
 }
 
