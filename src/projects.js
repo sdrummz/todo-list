@@ -2,7 +2,7 @@ import * as storage from './storage';
 import * as view from './view';
 
 const projectFactory = (name) => {
-    let ID = newID();
+    const ID = newID();
     return { name, ID };
 }
 // Add checkIDExists before assign
@@ -12,18 +12,21 @@ const newID = () => {
 }
 
 
-
 // add project modal submit
 const inputProject = document.getElementById('inputProject');
 const inputProjectBtn = document.querySelector('.inputProjectBtn');
+const addProjectModal = new bootstrap.Modal(document.getElementById('addProjectModal'))
 inputProjectBtn.addEventListener('click', function() {
     if (inputProject.value != '') {
-        storage.projectStorage.push(projectFactory(inputProject.value))
-        $('#addProjectModal').modal('toggle')
+        inputProject.classList.remove('is-invalid');
+        storage.projectStorage.push(projectFactory(inputProject.value));
+        addProjectModal.toggle();
         inputProject.value = null;
         view.updateProjectList();
+    } else if (inputProject.value === '') {
+        inputProject.classList.toggle('is-invalid');
     }
 })
 
 
-export { projectFactory };
+export { projectFactory, newID };

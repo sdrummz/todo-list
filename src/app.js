@@ -12,10 +12,6 @@ document.querySelector('.projects').addEventListener('click', function() {
     switchArrow();
 })
 
-
-// initialize view
-updateProjectList();
-
 // Switching selected category title
 const taskGroupBtns = document.querySelectorAll('.task-group-btn');
 taskGroupBtns.forEach(el => {
@@ -32,14 +28,34 @@ taskGroupBtns.forEach(el => {
     })
 })
 
+// initialize view
+updateProjectList();
+
+
+
 // bootstrap components initialize
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip({ trigger: 'hover'})
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
 })
 
-$(function () {
-    $('[data-toggle="popover"]').popover({
-        html: true,
-        content: '<div class="btn-group-vertical"><button type="button" class="btn btn-secondary">Low</button><button type="button" class="btn btn-secondary">Medium</button><button type="button" class="btn btn-secondary">High</button></div>'
-    })
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl, {
+    sanitize: false,
+    html: true,
+    content: '<div class="btn-group-vertical"><button type="button" class="btn btn-secondary">Low</button><button type="button" class="btn btn-secondary">Medium</button><button type="button" class="btn btn-secondary">High</button></div>',
+  })
 })
+
+// $(function () {
+//     $('[data-toggle="tooltip"]').tooltip({ trigger: 'hover'})
+// })
+
+// $(function () {
+//     $('[data-toggle="popover"]').popover({
+//         html: true,
+//         content: '<div class="btn-group-vertical"><button type="button" class="btn btn-secondary">Low</button><button type="button" class="btn btn-secondary">Medium</button><button type="button" class="btn btn-secondary">High</button></div>'
+//     })
+// })
