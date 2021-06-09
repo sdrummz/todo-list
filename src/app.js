@@ -1,4 +1,5 @@
 import { projectFactory } from './projects';
+import { taskFactory } from './tasks'
 import { switchArrow, updateProjectList, taskGroupTitle } from './view'
 import * as storage from './storage'
 
