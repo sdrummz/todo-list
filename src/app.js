@@ -29,6 +29,17 @@ taskGroupBtns.forEach(el => {
     })
 })
 
+// Switching selected project from project menu buttons
+// let projectBtns = document.querySelectorAll('.project-title');
+// projectBtns.forEach(el => {
+//     el.addEventListener('click', function() {
+//         console.log('hello')
+//         taskGroupTitle(`${el.textContent}`);
+//     })
+// })
+
+
+
 // initialize view
 updateProjectList();
 
@@ -49,3 +60,5 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
     content: '<div class="btn-group-vertical"><button type="button" class="btn btn-secondary">Low</button><button type="button" class="btn btn-secondary">Medium</button><button type="button" class="btn btn-secondary">High</button></div>',
   })
 })
+
+

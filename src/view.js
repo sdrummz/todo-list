@@ -25,13 +25,21 @@ const updateProjectList = () => {
     const projectList = document.querySelector('.project-list');
 
     // iterate over project items to delete
-    const projectItems = document.querySelectorAll('.project-item');
+    const projectItems = document.querySelectorAll('.project-title');
     projectItems.forEach(function(item) {
         item.remove();
     })
     // for each project object, add to view
     projectStorage.forEach(function(el) {
-        projectList.children[projectList.childElementCount - 1].insertAdjacentHTML("beforebegin", `<li class="project-item" data-project-ID=${el.projectID}>${el.name}</li>`);
+        projectList.children[projectList.childElementCount - 1].insertAdjacentHTML("beforebegin", `<li class="project-title" data-project-ID=${el.projectID}>${el.name}</li>`);
+    })
+    // add event listeners to the project btns
+    let projectBtns = document.querySelectorAll('.project-title');
+    projectBtns.forEach(el => {
+        el.addEventListener('click', function() {
+            console.log('hello')
+            taskGroupTitle(`${el.textContent}`);
+        })
     })
 }
 

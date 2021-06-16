@@ -19,7 +19,6 @@ const addProjectModal = new bootstrap.Modal(document.getElementById('addProjectM
 inputProjectBtn.addEventListener('click', function() {
     if (inputProject.value != '') {
         inputProject.classList.remove('is-invalid');
-        console.log(storage.projectStorage)
         storage.projectStorage.push(projectFactory(inputProject.value));
         addProjectModal.toggle();
         inputProject.value = null;
