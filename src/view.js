@@ -37,7 +37,6 @@ const updateProjectList = () => {
     let projectBtns = document.querySelectorAll('.project-title');
     projectBtns.forEach(el => {
         el.addEventListener('click', function() {
-            console.log('hello')
             taskGroupTitle(`${el.textContent}`);
         })
     })

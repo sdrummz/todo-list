@@ -3,9 +3,9 @@ import * as view from './view';
 import { newID } from './projects';
 
 
-const taskFactory = (title, description, dueDate, priority, project, taskID, projectID) => {
-    const ID = newID();
-    return {title, description, dueDate, priority, project, taskID};
+const taskFactory = (title, description, project, dueDate, priority, projectID) => {
+    const taskID = newID();
+    return {title, description, project, dueDate, priority, taskID, projectID};
 }
 
 // add task modal submit
@@ -18,16 +18,20 @@ const taskPriority = document.getElementById('taskPriority');
 const addTaskModal = new bootstrap.Modal(document.getElementById('addTaskModal'))
 const taskForm = document.getElementById('taskForm');
 
+const saveNewTask = () => {
+    taskForm.classList.add('was-validated');
+    if  (taskTitle.checkValidity() && taskProject.checkValidity() && taskDueDate.checkValidity() && taskPriority.checkValidity()) {
+        storage.taskStorage.push(taskFactory(taskTitle.value, taskDescription.value, taskProject.value, taskDueDate.value, taskPriority.value))
+    }
+    console.log(storage.taskStorage);
+}
+
+const retrieveProjectID = (taskProject) => {
+    
+}
+
 const saveTaskBtn = document.querySelector('.saveTaskBtn');
-saveTaskBtn.addEventListener('click', function() {
-    console.log('empty')
-})
+saveTaskBtn.addEventListener('click', saveNewTask);
 
 
 export { taskFactory }
-
-// const taskFormValidation = () => {
-//     if (taskTitle.value === '') {
-//         taskTitle.classList.add('is-invalid')
-//     }
-// }

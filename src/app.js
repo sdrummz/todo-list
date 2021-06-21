@@ -17,26 +17,9 @@ document.querySelector('.projects').addEventListener('click', function() {
 const taskGroupBtns = document.querySelectorAll('.task-group-btn');
 taskGroupBtns.forEach(el => {
     el.addEventListener('click', function() {
-        if (el.classList.contains('inbox')) {
-            taskGroupTitle('Inbox')
-        } else if (el.classList.contains('today')) {
-            taskGroupTitle('Today')
-        } else if (el.classList.contains('this-week')) {
-            taskGroupTitle('This week')
-        } else if (el.classList.contains('completed')) {
-            taskGroupTitle('Completed')
-        }
+        taskGroupTitle(`${el.textContent}`);
     })
 })
-
-// Switching selected project from project menu buttons
-// let projectBtns = document.querySelectorAll('.project-title');
-// projectBtns.forEach(el => {
-//     el.addEventListener('click', function() {
-//         console.log('hello')
-//         taskGroupTitle(`${el.textContent}`);
-//     })
-// })
 
 
 
