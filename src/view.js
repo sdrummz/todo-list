@@ -20,16 +20,16 @@ const taskGroupTitle = (taskGroup) => {
 
 //  update/add projects list
 const updateProjectList = () => {
-  // parent node/list
+  // parent node/list on project dropdown in nav
   const projectList = document.querySelector('.project-list');
 
   // iterate over project items to delete
   const projectItems = document.querySelectorAll('.project-title');
-  projectItems.forEach(function (item) {
-    item.remove();
+  projectItems.forEach((e) => {
+    e.remove();
   });
-  // for each project object, add to view
-  projectStorage.forEach(function (el) {
+  // for each project object, add to view under project dropdown in nav
+  projectStorage.forEach((el) => {
     projectList.children[projectList.childElementCount - 1].insertAdjacentHTML(
       'beforebegin',
       `<li class="project-title" data-project-ID=${el.projectID}>${el.name}</li>`
@@ -41,6 +41,17 @@ const updateProjectList = () => {
     el.addEventListener('click', function () {
       taskGroupTitle(`${el.textContent}`);
     });
+  });
+
+  const projectChoices = document.querySelectorAll('.project-choice');
+  projectChoices.forEach((e) => {
+    e.remove();
+  });
+
+  //   update project list within the add new task modal
+  const taskProject = document.getElementById('taskProject');
+  projectStorage.forEach((el) => {
+    taskProject.insertAdjacentHTML('beforeend', `<option class="project-choice" value=${el.name}>${el.name}</option>`);
   });
 };
 
