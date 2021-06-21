@@ -43,12 +43,12 @@ const updateProjectList = () => {
     });
   });
 
+  //   for add task modal, update project list within projects dropdown. first remove all to prevent duplicates
   const projectChoices = document.querySelectorAll('.project-choice');
   projectChoices.forEach((e) => {
     e.remove();
   });
 
-  //   update project list within the add new task modal
   const taskProject = document.getElementById('taskProject');
   projectStorage.forEach((el) => {
     taskProject.insertAdjacentHTML('beforeend', `<option class="project-choice" value=${el.name}>${el.name}</option>`);
