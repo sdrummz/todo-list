@@ -55,50 +55,25 @@ const updateProjectList = () => {
   });
 };
 
-// initialize tasklist, add logic for grouping tasks by ID into appropriate folders/projects
+// initialize/update tasklist view when submitting add new task modal
 const updateTaskList = () => {
-  const taskList = document.querySelector('.task-list');
-
-  taskStorage.forEach((el) => {
-    taskList.children[taskList.childElementCount - 1].insertAdjacentHTML(
-      'beforebegin',
-      `<li class="list-group-item task-item" data-task-ID="${el.taskID}">
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="taskCheck" />
-      <label class="form-check-label">${el.title}</label>
-    </div>
-    <div class="task-actions">
-      <span data-bs-toggle="modal" data-bs-target="#editTaskModal">
-        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit task">
-          <img src="images/pencil.svg" width="20" alt="" />
-        </button>
-      </span>
-      <span data-container="body" data-bs-toggle="popover" data-bs-placement="left">
-        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Priority">
-          <img src="images/low-flag.svg" width="20" alt="" />
-        </button>
-      </span>
-      <span data-bs-toggle="modal" data-bs-target="#deleteTaskModal">
-        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete task">
-          <img src="images/delete.svg" width="20" alt="" />
-        </button>
-      </span>
-    </div>
-  </li>`
-    );
+  //   check if task already exists in DOM, if not then add new task with insertNewTask function
+  taskStorage.forEach((task) => {
+    if (document.querySelector(`[data-task-ID=${task.taskID}]`) == null) {
+      insertNewTask(task);
+    }
   });
 };
 
 // add new task when submitting modal, adds appropriate event listeners to actions
-const insertNewTask = () => {
+const insertNewTask = (task) => {
   const taskList = document.querySelector('.task-list');
-  let newTask = taskStorage[taskStorage.length - 1];
   taskList.children[taskList.childElementCount - 1].insertAdjacentHTML(
     'beforebegin',
-    `<li class="list-group-item task-item" data-task-ID="${newTask.taskID}">
+    `<li class="list-group-item task-item" data-task-ID="${task.taskID}">
     <div class="form-check">
       <input type="checkbox" class="form-check-input" id="taskCheck" />
-      <label class="form-check-label">${newTask.title}</label>
+      <label class="form-check-label">${task.title}</label>
     </div>
     <div class="task-actions">
       <span data-bs-toggle="modal" data-bs-target="#editTaskModal">

@@ -33,7 +33,7 @@ const saveNewTask = () => {
       )
     );
     addTaskModal.toggle();
-    view.insertNewTask();
+    view.updateTaskList();
     taskForm.classList.remove('was-validated');
     taskTitle.value = null;
     taskDescription.value = null;
