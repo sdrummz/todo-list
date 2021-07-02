@@ -81,7 +81,7 @@ const insertNewTask = (task) => {
                     <img src="images/pencil.svg" width="20" alt="" />
                 </button>
             </span>
-            <span data-container="body" data-bs-toggle="popover" data-bs-placement="left">
+            <span data-container="body" class="popoverBtn" data-bs-toggle="popover" data-bs-placement="left">
                 <button type="button" class="btn btn-secondary priorityBtn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Priority">
                     <img src="images/low-flag.svg" width="20" alt="" />
                 </button>
@@ -94,6 +94,7 @@ const insertNewTask = (task) => {
         </div>
     </li>`
   );
+
   document.querySelector(`[data-task-ID=${task.taskID}] .editBtn`).addEventListener('click', function () {
     console.log('edit btn');
   });
