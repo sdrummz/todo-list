@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
   new bootstrap.Popover(document.body, {
     selector: '[data-bs-toggle="popover"]',
     sanitize: false,
+    trigger: 'focus',
     html: true,
     content:
       '<div class="btn-group-vertical"><button type="button" class="btn btn-secondary">Low</button><button type="button" class="btn btn-secondary">Medium</button><button type="button" class="btn btn-secondary">High</button></div>',
