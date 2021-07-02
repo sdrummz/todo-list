@@ -1,4 +1,5 @@
 import { projectStorage, taskStorage } from './storage';
+import { deleteTask } from './tasks';
 
 // Switch arrow function switches arrow direction on projects dropdown
 const switchArrow = () => {
@@ -70,7 +71,7 @@ const insertNewTask = (task) => {
   const taskList = document.querySelector('.task-list');
   taskList.children[taskList.childElementCount - 1].insertAdjacentHTML(
     'beforebegin',
-    `<li class="list-group-item task-item" data-task-ID="${task.taskID}">
+    `<li class="list-group-item task-item" data-task-ID=${task.taskID}>
         <div class="form-check">
             <input type="checkbox" class="form-check-input" id="taskCheck" />
             <label class="form-check-label">${task.title}</label>
@@ -87,7 +88,7 @@ const insertNewTask = (task) => {
                 </button>
             </span>
             <span data-bs-toggle="modal" data-bs-target="#deleteTaskModal">
-                <button type="button" class="btn btn-secondary deleteBtn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete task">
+                <button type="button" class="btn btn-secondary deleteBtn">
                     <img src="images/delete.svg" width="20" alt="" />
                 </button>
             </span>
@@ -102,7 +103,7 @@ const insertNewTask = (task) => {
     console.log('priority btn');
   });
   document.querySelector(`[data-task-ID=${task.taskID}] .deleteBtn`).addEventListener('click', function () {
-    console.log('delete btn');
+    deleteTask(task.taskID);
   });
 };
 

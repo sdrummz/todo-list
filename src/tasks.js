@@ -51,4 +51,12 @@ const retrieveProjectID = (taskProject) => {
 const saveTaskBtn = document.querySelector('.saveTaskBtn');
 saveTaskBtn.addEventListener('click', saveNewTask);
 
-export { taskFactory };
+// Delete task from taskStorage
+const deleteTask = (selectedTaskID) => {
+  let targetTaskIndex = storage.taskStorage.findIndex((task) => task.taskID === selectedTaskID);
+  storage.taskStorage.splice(targetTaskIndex, 1);
+  document.querySelector(`[data-task-ID=${selectedTaskID}]`).remove();
+  view.updateTaskList();
+};
+
+export { taskFactory, deleteTask };

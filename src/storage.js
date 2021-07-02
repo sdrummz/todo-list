@@ -1,5 +1,7 @@
-export let projectStorage = [{ name: 'Default', projectID: '_yu6b45iw6' }];
-export let taskStorage = [
+import { deleteTask } from './tasks';
+
+let projectStorage = [{ name: 'Default', projectID: '_yu6b45iw6' }];
+let taskStorage = [
   {
     title: 'new task',
     description: 'do something',
@@ -10,3 +12,5 @@ export let taskStorage = [
     projectID: '_yu6b45iw6',
   },
 ];
+
+export { projectStorage, taskStorage };
