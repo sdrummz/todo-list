@@ -34,6 +34,7 @@ const saveNewTask = () => {
     );
     addTaskModal.toggle();
     view.updateTaskList();
+    console.log(storage.taskStorage);
 
     // clean modal after submit
     taskForm.classList.remove('was-validated');
