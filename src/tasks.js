@@ -34,6 +34,8 @@ const saveNewTask = () => {
     );
     addTaskModal.toggle();
     view.updateTaskList();
+
+    // clean modal after submit
     taskForm.classList.remove('was-validated');
     taskTitle.value = null;
     taskDescription.value = null;
@@ -48,15 +50,15 @@ const retrieveProjectID = (taskProject) => {
   return storage.projectStorage.find((e) => e.name === taskProject).projectID;
 };
 
+// event listner on save new task modal
 const saveTaskBtn = document.querySelector('.saveTaskBtn');
 saveTaskBtn.addEventListener('click', saveNewTask);
 
-// Delete task from taskStorage
+// Delete task from taskStorage and view
 const deleteTask = (selectedTaskID) => {
   let targetTaskIndex = storage.taskStorage.findIndex((task) => task.taskID === selectedTaskID);
   storage.taskStorage.splice(targetTaskIndex, 1);
   document.querySelector(`[data-task-ID=${selectedTaskID}]`).remove();
-  view.updateTaskList();
 };
 
 export { taskFactory, deleteTask };

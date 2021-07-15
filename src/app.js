@@ -38,7 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
     sanitize: false,
     trigger: 'focus',
     html: true,
-    content:
-      '<div class="btn-group-vertical"><button type="button" class="btn btn-secondary">Low</button><button type="button" class="btn btn-secondary">Medium</button><button type="button" class="btn btn-secondary">High</button></div>',
+    content: `<div class="btn-group-vertical">
+            <button type="button" class="btn btn-secondary hiPriorityBtn">Low</button>
+            <button type="button" class="btn btn-secondary mdPriorityBtn">Medium</button>
+            <button type="button" class="btn btn-secondary loPriorityBtn">High</button>
+        </div>`,
   });
 });

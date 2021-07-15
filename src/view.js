@@ -11,7 +11,7 @@ const switchArrow = () => {
   }
 };
 
-// Switching selected menu categories (default it today)
+// Switching selected menu categories (default is today)
 const taskGroupTitle = (taskGroup) => {
   let title = document.querySelector('.task-group-title');
   title.textContent = taskGroup;
@@ -56,6 +56,7 @@ const updateProjectList = () => {
   });
 };
 
+var deleteTaskModal = new bootstrap.Modal(document.getElementById('deleteTaskModal'));
 // initialize/update tasklist view when submitting add new task modal
 const updateTaskList = () => {
   //   check if task already exists in DOM, if not then add new task with insertNewTask function
@@ -87,7 +88,7 @@ const insertNewTask = (task) => {
                     <img src="images/low-flag.svg" width="20" alt="" />
                 </button>
             </span>
-            <span data-bs-toggle="modal" data-bs-target="#deleteTaskModal">
+            <span>
                 <button type="button" class="btn btn-secondary deleteBtn">
                     <img src="images/delete.svg" width="20" alt="" />
                 </button>
@@ -96,6 +97,7 @@ const insertNewTask = (task) => {
     </li>`
   );
 
+  // event listeners for task buttons
   document.querySelector(`[data-task-ID=${task.taskID}] .editBtn`).addEventListener('click', function () {
     console.log('edit btn');
   });
@@ -103,7 +105,13 @@ const insertNewTask = (task) => {
     console.log('priority btn');
   });
   document.querySelector(`[data-task-ID=${task.taskID}] .deleteBtn`).addEventListener('click', function () {
-    deleteTask(task.taskID);
+    deleteTaskModal.toggle();
+    const modalDeleteTaskSubmit = document.querySelector('.modalDeleteTaskSubmit');
+    modalDeleteTaskSubmit.addEventListener('click', function handler(e) {
+      e.currentTarget.removeEventListener(e.type, handler);
+      deleteTask(task.taskID);
+      deleteTaskModal.toggle();
+    });
   });
 };
 
