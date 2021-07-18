@@ -194,10 +194,50 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Edit task</h5>
           </div>
-          <div class="modal-body"></div>
+          <div class="modal-body">
+            <form id="editTaskForm" onsubmit="return false" novalidate>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="editTaskTitle" class="form-label mt-1">Title:</label>
+                    <input type="text" id="editTaskTitle" class="form-control" placeholder="Task title" required />
+                    <div class="invalid-feedback">Please input task title</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="editTaskDescription" class="form-label mt-1">Description:</label>
+                    <textarea class="form-control" id="editTaskDescription" rows="4"></textarea>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="editTaskProject" class="form-label mt-1">Project:</label>
+                    <select class="form-select" id="editTaskProject" required>
+                      <option selected disabled value="">Choose...</option>
+                    </select>
+                    <div class="invalid-feedback">Please select project</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="editTaskDueDate" class="form-label mt-1">Due date:</label>
+                    <input type="date" id="editTaskDueDate" class="form-control" required />
+                    <div class="invalid-feedback">Please input due date and time</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="editTaskPriority" class="form-label mt-1">Priority:</label>
+                    <select class="form-select" id="editTaskPriority" required>
+                      <option selected disabled value="">Choose...</option>
+                      <option value="low">Low</option>
+                      <option value="medium">Medium</option>
+                      <option value="high">High</option>
+                    </select>
+                    <div class="invalid-feedback">Please select priority level</div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary">Save task</button>
+            <button type="button" class="btn btn-primary modalEditTaskSave">Save task</button>
           </div>
         </div>
       </div>

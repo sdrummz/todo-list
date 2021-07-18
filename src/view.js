@@ -1,5 +1,5 @@
 import { projectStorage, taskStorage } from './storage';
-import { deleteTask } from './tasks';
+import { deleteTask, editTaskValues } from './tasks';
 
 // Switch arrow function switches arrow direction on projects dropdown
 const switchArrow = () => {
@@ -44,19 +44,24 @@ const updateProjectList = () => {
     });
   });
 
-  //   for add task modal, update project list within projects dropdown. first remove all to prevent duplicates
+  //   for add/edit task modal, update project list within projects dropdown. first remove all to prevent duplicates
   const projectChoices = document.querySelectorAll('.project-choice');
   projectChoices.forEach((e) => {
     e.remove();
   });
 
   const taskProject = document.getElementById('taskProject');
+  const editTaskProject = document.getElementById('editTaskProject');
   projectStorage.forEach((el) => {
     taskProject.insertAdjacentHTML('beforeend', `<option class="project-choice" value=${el.name}>${el.name}</option>`);
+    editTaskProject.insertAdjacentHTML('beforeend', `<option class="project-choice" value=${el.name}>${el.name}</option>`);
   });
 };
 
+// create instance of delete task modal to be used in insertNewTask, as well as editTask Modal
 var deleteTaskModal = new bootstrap.Modal(document.getElementById('deleteTaskModal'));
+var editTaskModal = new bootstrap.Modal(document.getElementById('editTaskModal'));
+
 // initialize/update tasklist view when submitting add new task modal
 const updateTaskList = () => {
   //   check if task already exists in DOM, if not then add new task with insertNewTask function
@@ -78,7 +83,7 @@ const insertNewTask = (task) => {
             <label class="form-check-label">${task.title}</label>
         </div>
         <div class="task-actions">
-            <span data-bs-toggle="modal" data-bs-target="#editTaskModal">
+            <span>
                 <button type="button" class="btn btn-secondary editBtn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit task">
                     <img src="images/pencil.svg" width="20" alt="" />
                 </button>
@@ -99,7 +104,13 @@ const insertNewTask = (task) => {
 
   // event listeners for task buttons
   document.querySelector(`[data-task-ID=${task.taskID}] .editBtn`).addEventListener('click', function () {
-    console.log('edit btn');
+    editTaskModal.toggle();
+    editTaskValues(task);
+    const modalEditTaskSave = document.querySelector('.modalEditTaskSave');
+    modalEditTaskSave.addEventListener('click', function handler(e) {
+      e.currentTarget.removeEventListener(e.type, handler);
+      console.log('working');
+    });
   });
   document.querySelector(`[data-task-ID=${task.taskID}] .priorityBtn`).addEventListener('click', function () {
     console.log('priority btn');
