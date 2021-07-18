@@ -104,6 +104,7 @@ const insertNewTask = (task) => {
 
   // event listeners for task buttons
   document.querySelector(`[data-task-ID=${task.taskID}] .editBtn`).addEventListener('click', function () {
+    // open modal, populate form with values, then submit form with new values
     editTaskModal.toggle();
     editTaskValues(task);
     const modalEditTaskSave = document.querySelector('.modalEditTaskSave');

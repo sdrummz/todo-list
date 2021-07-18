@@ -46,6 +46,11 @@ const saveNewTask = () => {
   }
 };
 
+// returns the project ID of the project selected, so tasks can be later grouped by projectID
+const retrieveProjectID = (taskProject) => {
+  return storage.projectStorage.find((e) => e.name === taskProject).projectID;
+};
+
 // event listner on save new task modal
 const saveTaskBtn = document.querySelector('.saveTaskBtn');
 saveTaskBtn.addEventListener('click', saveNewTask);
