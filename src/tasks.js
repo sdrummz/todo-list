@@ -70,6 +70,13 @@ const editTaskValues = (selectedTask) => {
   document.getElementById('editTaskPriority').value = selectedTask.priority;
 };
 
-// const saveEditTaskValues
+const saveEditTaskValues = (selectedTaskID) => {
+  let target = storage.taskStorage[storage.taskStorage.findIndex((task) => task.taskID === selectedTaskID)];
+  target.title = document.getElementById('editTaskTitle').value;
+  target.description = document.getElementById('editTaskDescription').value;
+  target.project = document.getElementById('editTaskProject').value;
+  target.dueDate = document.getElementById('editTaskDueDate').value;
+  target.priority = document.getElementById('editTaskPriority').value;
+};
 
-export { taskFactory, deleteTask, editTaskValues };
+export { taskFactory, deleteTask, editTaskValues, saveEditTaskValues };

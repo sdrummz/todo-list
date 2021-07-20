@@ -1,5 +1,5 @@
 import { projectStorage, taskStorage } from './storage';
-import { deleteTask, editTaskValues } from './tasks';
+import { deleteTask, editTaskValues, saveEditTaskValues } from './tasks';
 
 // Switch arrow function switches arrow direction on projects dropdown
 const switchArrow = () => {
@@ -110,19 +110,30 @@ const insertNewTask = (task) => {
     const modalEditTaskSave = document.querySelector('.modalEditTaskSave');
     modalEditTaskSave.addEventListener('click', function handler(e) {
       e.currentTarget.removeEventListener(e.type, handler);
-      console.log('working');
+      saveEditTaskValues(task.taskID);
+      editTaskModal.toggle();
     });
   });
   document.querySelector(`[data-task-ID=${task.taskID}] .priorityBtn`).addEventListener('click', function () {
     console.log('priority btn');
   });
+
+  // delete button click event logic
   document.querySelector(`[data-task-ID=${task.taskID}] .deleteBtn`).addEventListener('click', function () {
+    // open delete btn modal
     deleteTaskModal.toggle();
     const modalDeleteTaskSubmit = document.querySelector('.modalDeleteTaskSubmit');
-    modalDeleteTaskSubmit.addEventListener('click', function handler(e) {
-      e.currentTarget.removeEventListener(e.type, handler);
+    // function to delete task
+    const modalDeleteSubmit = () => {
+      modalDeleteTaskSubmit.removeEventListener('click', modalDeleteSubmit);
       deleteTask(task.taskID);
       deleteTaskModal.toggle();
+    };
+    // prevent multiple event listeners being added to delete modal submit btn when clicking close instead of submit
+    modalDeleteTaskSubmit.addEventListener('click', modalDeleteSubmit);
+    document.querySelector('.modalDeleteTaskClose').addEventListener('click', function handler(e) {
+      e.currentTarget.removeEventListener('click', handler);
+      modalDeleteTaskSubmit.removeEventListener('click', modalDeleteSubmit);
     });
   });
 };
