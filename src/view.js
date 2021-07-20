@@ -103,17 +103,32 @@ const insertNewTask = (task) => {
   );
 
   // event listeners for task buttons
+
+  // edit task click event logic
   document.querySelector(`[data-task-ID=${task.taskID}] .editBtn`).addEventListener('click', function () {
-    // open modal, populate form with values, then submit form with new values
+    // open modal, populate form with values
     editTaskModal.toggle();
     editTaskValues(task);
-    const modalEditTaskSave = document.querySelector('.modalEditTaskSave');
-    modalEditTaskSave.addEventListener('click', function handler(e) {
-      e.currentTarget.removeEventListener(e.type, handler);
+
+    // logic for save task btn/event listener
+    const editTaskSave = () => {
+      modalEditTaskSave.removeEventListener('click', editTaskSave);
       saveEditTaskValues(task.taskID);
       editTaskModal.toggle();
+    };
+
+    // add event listener to save same or new values in form
+    const modalEditTaskSave = document.querySelector('.modalEditTaskSave');
+    modalEditTaskSave.addEventListener('click', editTaskSave);
+
+    // prevent multiple event listeners bug being added on edit task modal close
+    document.querySelector('.modalEditTaskClose').addEventListener('click', function handler(e) {
+      e.currentTarget.removeEventListener('click', handler);
+      modalEditTaskSave.removeEventListener('click', editTaskSave);
     });
   });
+
+  // change priority button event listeners and logic
   document.querySelector(`[data-task-ID=${task.taskID}] .priorityBtn`).addEventListener('click', function () {
     console.log('priority btn');
   });
@@ -124,13 +139,13 @@ const insertNewTask = (task) => {
     deleteTaskModal.toggle();
     const modalDeleteTaskSubmit = document.querySelector('.modalDeleteTaskSubmit');
     // function to delete task
-    const modalDeleteSubmit = () => {
-      modalDeleteTaskSubmit.removeEventListener('click', modalDeleteSubmit);
+    const deleteSubmit = () => {
+      modalDeleteTaskSubmit.removeEventListener('click', deleteSubmit);
       deleteTask(task.taskID);
       deleteTaskModal.toggle();
     };
-    // prevent multiple event listeners being added to delete modal submit btn when clicking close instead of submit
     modalDeleteTaskSubmit.addEventListener('click', modalDeleteSubmit);
+    // prevent multiple event listeners being added to delete modal submit btn when clicking close instead of submit
     document.querySelector('.modalDeleteTaskClose').addEventListener('click', function handler(e) {
       e.currentTarget.removeEventListener('click', handler);
       modalDeleteTaskSubmit.removeEventListener('click', modalDeleteSubmit);
