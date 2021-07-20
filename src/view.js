@@ -114,6 +114,7 @@ const insertNewTask = (task) => {
     const editTaskSave = () => {
       modalEditTaskSave.removeEventListener('click', editTaskSave);
       saveEditTaskValues(task.taskID);
+      document.querySelector(`[data-task-ID=${task.taskID}] .form-check-label`).textContent = task.title;
       editTaskModal.toggle();
     };
 
